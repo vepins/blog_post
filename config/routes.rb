@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :blog_posts
       # resources is REPLACING the get routes before
       # get 'blog_posts/index'

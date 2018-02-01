@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 gem 'devise'
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
