@@ -1,0 +1,37 @@
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <%= @blog_post.title %>
+    </div>
+
+    <div class="panel-body">
+      by <%= @blog_post.author %><br>
+      <p><%= time_ago_in_words(@blog_post.created_at) %> ago!</p>
+      <p><%= @blog_post.blog_entry %></p>
+    </div>
+
+    <div class="panel-footer">
+      <%= link_to "Edit", edit_blog_post_path(@blog_post), class: "btn btn-warning" %>
+      <%= link_to "All Blog Posts", root_path, class: "btn btn-default" %>
+    </div>
+  </div>
+
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      Make a comment...
+    </div>
+    <div class="panel-body">
+      <%= render 'comments/form' %>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      All Comments...
+    </div>
+    <div class="panel-body">
+      <%= render 'comments/comment' %>
+    </div>
+  </div>
+
+<%# NOTE: Make the title clickable and make it go to the show page. %>

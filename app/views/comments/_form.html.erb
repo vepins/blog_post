@@ -1,0 +1,29 @@
+<%= form_with(model: @comment, local: true) do |form| %>
+  <% if @comment.errors.any? %>
+    <div class="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %></h2>
+      <ul>
+        <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.text_field :author, class:  "form-control", placeholder: "Your name here..." %>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_area :comment_entry, rows: 4, class: "form-control", placeholder: "Enter Comment here..." %>
+  </div>
+
+  <div class="form-group">
+    <%= form.hidden_field :blog_post_id, value: @blog_post.id %>
+    <%# NOTE: have to set value or it would be blank. %>
+
+  <div class="actions">
+    <%= form.submit "Set Comment", class: "btn btn-default" %>
+  </div>
+
+<% end %>

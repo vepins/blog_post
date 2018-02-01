@@ -1,0 +1,32 @@
+<%= form_with(model: @blog_post, local: true) do |form| %>
+  <%# NOTE: pulls @blog_post from the NEW method in blog_posts_controller %>
+  <% if @blog_post.errors.any? %>
+
+    <div id="error_explanation">
+      <h2><%= pluralize(@blog_post.errors.count, "error") %> prohibited this blog post from being saved:</h2>
+      <ul>
+        <% @blog_post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.text_field :title, class: "form-control", placeholder: "Blog Title..." %>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_field :author, class: "form-control", placeholder: "Your name here..." %>
+  </div>
+
+  <div class="form-group">
+    <%= form.text_area :blog_entry, class: "form-control", rows: 12, placeholder: "Tell us something..." %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Post", class: "btn btn-primary" %>
+  </div>
+
+<% end %>
+<%# NOTE: this form is in two place, so if you need to change something, you just have to change it once here, instead of twice in two files.  %>
