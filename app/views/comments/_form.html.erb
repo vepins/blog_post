@@ -10,9 +10,8 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.text_field :author, class:  "form-control", placeholder: "Your name here..." %>
-  </div>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+
 
   <div class="form-group">
     <%= form.text_area :comment_entry, rows: 4, class: "form-control", placeholder: "Enter Comment here..." %>

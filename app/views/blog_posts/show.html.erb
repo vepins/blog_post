@@ -7,11 +7,13 @@
     <div class="panel-body">
       by <%= @blog_post.author %><br>
       <p><%= time_ago_in_words(@blog_post.created_at) %> ago!</p>
-      <p><%= @blog_post.blog_entry %></p>
+      <p><%= @blog_post.blog_entry.html_safe %></p>
     </div>
 
     <div class="panel-footer">
-      <%= link_to "Edit", edit_blog_post_path(@blog_post), class: "btn btn-warning" %>
+      <% if current_user.id == @blog_post.user_id %>
+        <%= link_to "Edit", edit_blog_post_path(@blog_post), class: "btn btn-warning" %>
+      <% end %>
       <%= link_to "All Blog Posts", root_path, class: "btn btn-default" %>
     </div>
   </div>
